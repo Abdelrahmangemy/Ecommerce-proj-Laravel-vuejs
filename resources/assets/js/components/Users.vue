@@ -58,7 +58,42 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <div class="form-group">
+                <input v-model="form.name" type="text" name="name"
+                placeholder="Name"
+                    class="form-control" :class="{ 'is-invalid': form.errors.has('name') }">
+                <has-error :form="form" field="name"></has-error>
+                </div>
+                <div class="form-group">
+                <input v-model="form.email" type="text" name="email"
+                placeholder="E-mail"
+                    class="form-control" :class="{ 'is-invalid': form.errors.has('email') }">
+                <has-error :form="form" field="email"></has-error>
+                </div>
+                <div class="form-group">
+                <input v-model="form.password" type="password" name="password"
+                placeholder="password"
+                    class="form-control" :class="{ 'is-invalid': form.errors.has('password') }">
+                <has-error :form="form" field="password"></has-error>
+                </div>
+                <div class="form-group">
+                <input v-model="form.type" type="text" name="type"
+                placeholder="type"
+                    class="form-control" :class="{ 'is-invalid': form.errors.has('type') }">
+                <has-error :form="form" field="type"></has-error>
+                </div>
+                <div class="form-group">
+                <input v-model="form.bio" type="text" name="bio"
+                placeholder="Bio"
+                    class="form-control" :class="{ 'is-invalid': form.errors.has('bio') }">
+                <has-error :form="form" field="bio"></has-error>
+                </div>
+                <div class="form-group">
+                <input v-model="form.photo" type="" name="photo"
+                placeholder="photo"
+                    class="form-control" :class="{ 'is-invalid': form.errors.has('photo') }">
+                <has-error :form="form" field="photo"></has-error>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -72,6 +107,18 @@
 
 <script>
     export default {
+        data() {
+            return {
+                form : new Form({
+                    name : '',
+                    email : '',
+                    password : '',
+                    type : '',
+                    bio : '',
+                    photo : ''
+                })
+            }
+        },
         mounted() {
             console.log('Component mounted.')
         }

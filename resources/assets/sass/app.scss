@@ -8,14 +8,14 @@ $fa-font-path:"../webfonts";
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 @import '~admin-lte/dist/css/adminlte.css';
-
+/*
 @import "~@fortawesome/fornawesome-free/scss/fontawesome.scss";
 @import "~@fortawesome/fornawesome-free/scss/solid.scss";
 @import "~@fortawesome/fornawesome-free/scss/brands.scss";
-
+*/
 .navbar-laravel {
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(184, 56, 56, 0.04);
+  box-shadow: 0 2px 4px #b838380a;
 }
 
 .router-link-exact-active{
