@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-            <router-link to="/dashboard" tag="a" class="nav-link"  active-class="active" exact>
+            <router-link to="/dashboard" class="nav-link">
               <i class="nav-icon fas fa-tog "></i>
               <p>
                 Dashboard
@@ -89,7 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/users" tag="a" class="nav-link"   active-class="active" exact>
+                <router-link to="/users" class="nav-link">
                   <i class="far fa-users nav-icon"></i>
                   <p>Users</p>
                 </router-link>
@@ -103,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
-          <router-link to="/profile" tag="a" class="nav-link"  active-class="active" exact>
+          <router-link to="/profile" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Profile
@@ -137,7 +137,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-      <router-view></router-view>
+        <router-view></router-view>
+        <vue-progress-bar></vue-progress-bar>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->

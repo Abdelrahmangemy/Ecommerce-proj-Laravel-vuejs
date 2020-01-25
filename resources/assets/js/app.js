@@ -11,11 +11,40 @@ window.Vue = require('vue');
 import { Form, HasError, AlertError } from 'vform'
 
 window.Form = Form;
+import moment from 'moment';
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+
+//sweetAlert
+import swal from 'sweetalert2'
+window.swal = swal; 
+
+//toaster
+const Toast = swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  
+  timerProgressBar: true,
+  onOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+  
+});
+window.Toast = Toast ;
+
+//progress Bar
+import VueProgressBar from 'vue-progressbar'
+Vue.use(VueProgressBar, {
+  color: 'rgb(143, 255, 199)',
+  failedColor: 'red',
+  height: '3px'
+})
 
 let routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue') },
@@ -26,8 +55,20 @@ let routes = [
 
   const router = new VueRouter({
     mode: 'history',
-    routes // short for `routes: routes`
+    routes , // short for `routes: routes`
+  
   })
+
+  Vue.filter('upText',function(text){
+    return text.charAt(0).toUpperCase() + text.slice(1)  
+  });
+
+  Vue.filter('myDate',function(created){
+    return moment(created).format('MMMM Do YYYY');
+  });
+
+  window.Fire = new Vue() ;
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
