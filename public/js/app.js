@@ -73695,53 +73695,80 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            users: {},
-            form: new Form({
-                name: '',
-                email: '',
-                password: '',
-                type: '',
-                bio: '',
-                photo: ''
-            })
-        };
-    },
+  data: function data() {
+    return {
+      users: {},
+      form: new Form({
+        name: '',
+        email: '',
+        password: '',
+        type: '',
+        bio: '',
+        photo: ''
+      })
+    };
+  },
 
-    methods: {
-        loadUsers: function loadUsers() {
-            var _this = this;
+  methods: {
+    deleteUser: function deleteUser(id) {
+      var _this = this;
 
-            axios.get("api/user").then(function (_ref) {
-                var data = _ref.data;
-                return _this.users = data;
-            });
-        },
-        createUser: function createUser() {
-            this.$Progress.start();
-            // Submit the form via a POST request
-            this.form.post('api/user');
+      swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (result) {
+
+        //send request to the server
+        if (result.value) {
+          _this.form.delete('api/user/' + id).then(function () {
+            swal.fire('Deleted!', 'Your file has been deleted.', 'success');
             Fire.$emit('AfterCreated');
-            $('#addNew').modal('hide');
-
-            Toast.fire({
-                icon: 'success',
-                title: 'User Created in successfully'
-            });
-
-            this.$Progress.finish();
+          }).catch(function () {
+            swal("Failed!", "There was something wrong.", "warning");
+          });
         }
+      });
     },
-    created: function created() {
-        var _this2 = this;
+    loadUsers: function loadUsers() {
+      var _this2 = this;
 
-        this.loadUsers();
-        Fire.$on('AfterCreated', function () {
-            _this2.loadUsers();
+      axios.get("api/user").then(function (_ref) {
+        var data = _ref.data;
+        return _this2.users = data;
+      });
+    },
+    createUser: function createUser() {
+      var _this3 = this;
+
+      this.$Progress.start();
+      // Submit the form via a POST request
+      this.form.post('api/user').then(function () {
+        Fire.$emit('AfterCreated');
+        $('#addNew').modal('hide');
+
+        Toast.fire({
+          icon: 'success',
+          title: 'User Created in successfully'
         });
-        //setInterval(() => this.loadUsers(),3000); 
+
+        _this3.$Progress.finish();
+      }).catch(function () {});
     }
+  },
+  created: function created() {
+    var _this4 = this;
+
+    this.loadUsers();
+    Fire.$on('AfterCreated', function () {
+      _this4.loadUsers();
+    });
+    //setInterval(() => this.loadUsers(),3000); 
+  }
 });
 
 /***/ }),
@@ -73779,7 +73806,27 @@ var render = function() {
                         _vm._v(_vm._s(_vm._f("myDate")(user.created_at)))
                       ]),
                       _vm._v(" "),
-                      _vm._m(2, true)
+                      _c("td", [
+                        _vm._m(2, true),
+                        _vm._v(
+                          "\n                      /\n                      "
+                        ),
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteUser(user.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v("Delete\n                          "),
+                            _c("i", { staticClass: "fa fa-trash red" })
+                          ]
+                        )
+                      ])
                     ])
                   })
                 ],
@@ -74119,16 +74166,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "#" } }, [
-        _vm._v("Edit\n                          "),
-        _c("i", { staticClass: "fa fa-edit blue" })
-      ]),
-      _vm._v("\n                      /\n                      "),
-      _c("a", { attrs: { href: "#" } }, [
-        _vm._v("Delete\n                          "),
-        _c("i", { staticClass: "fa fa-trash red" })
-      ])
+    return _c("a", { attrs: { href: "#" } }, [
+      _vm._v("Edit\n                          "),
+      _c("i", { staticClass: "fa fa-edit blue" })
     ])
   },
   function() {
