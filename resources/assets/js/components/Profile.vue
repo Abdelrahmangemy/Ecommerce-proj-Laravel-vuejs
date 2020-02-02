@@ -7,6 +7,7 @@
 .widget-user .card-footer{
     padding: 0;
 }
+
 </style>
 
 <template>
@@ -20,8 +21,8 @@
                     <h5 class="widget-user-desc">Founder &amp; CEO</h5>
                 </div>
                 <div class="widget-user-image">
-                    <img class="img-circle elevation-2" src="" alt="User Avatar">
-                </div>
+                    <img class="img-circle elevation-2" :src="getProfilePicture()" alt="User Avatar">
+                </div><br><br>
                 <div class="card-footer">
                     <div class="row">
                     <div class="col-sm-4 border-right">
@@ -75,13 +76,15 @@
                       <div class="form-group ">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-12">
-                          <input type="" v-model="form.name" class="form-control" id="inputName" placeholder="Name">
+                          <input type="" v-model="form.name" class="form-control" :class="{ 'is-invalid': form.errors.has('name') }" id="inputName" placeholder="Name">
+                          <has-error :form="form" field="name"></has-error>
                        </div>
                       </div>
                       <div class="form-group ">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-12">
-                          <input type="email" v-model="form.email" class="form-control" id="inputEmail" placeholder="Email">
+                          <input type="email" v-model="form.email" class="form-control" :class="{ 'is-invalid': form.errors.has('email') }" id="inputEmail" placeholder="Email">
+                          <has-error :form="form" field="email"></has-error>
                       </div>
                       </div>
                     
@@ -101,10 +104,11 @@
                       </div>
 
                       <div class="form-group ">
-                        <label for="password" class="col-sm-2 control-label">Passport (leave empty if not changing)</label>
+                        <label for="password" class="col-sm-2 control-label">Password (leave empty if not changing)</label>
                         <div class="col-sm-12">
-                          
-                      </div>
+                            <input type="password" v-model="form.password" class="form-control" :class="{ 'is-invalid': form.errors.has('password') }" id="password" placeholder="password" >
+                            <has-error :form="form" field="password"></has-error>
+                      </div>  
                       </div>
                       
                       
@@ -146,12 +150,24 @@
         },
 
         methods: {
+
+          getProfilePicture(){
+            let prefix = (this.form.photo.match(/\//) ? '' : '/img/profile/');
+            return prefix + this.form.photo;
+          },
+
           updateInfo(){
             this.$Progress.start();
+
+            if (this.form.password == '' ) {
+
+              this.form.password = 'undifined';
+
+            }
+
             this.form.put('api/profile')
+
             .then(()=>{
-
-
               this.$Progress.finish();
             })
             .catch(()=>{
