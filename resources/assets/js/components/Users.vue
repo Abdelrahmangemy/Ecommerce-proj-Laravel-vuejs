@@ -170,7 +170,7 @@
             $('#addNew').modal('show');
           },
           deleteUser(id){
-            swal.fire({
+            swal({
               title: 'Are you sure?',
               text: "You won't be able to revert this!",
               icon: 'warning',
@@ -189,7 +189,7 @@
                         'success'
                       )
                     Fire.$emit('AfterCreated');
-                }).catch(()=>{
+                }).catch(() => {
                   swal("Failed!","There was something wrong.","warning");
                 });
                 }   
