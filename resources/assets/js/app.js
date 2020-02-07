@@ -54,7 +54,8 @@ let routes = [
     { path: '/dashboard', component: require('./components/Dashboard.vue') },
     { path: '/profile', component: require('./components/Profile.vue') },
     { path: '/users', component: require('./components/Users.vue') },
-    { path: '/developer', component: require('./components/Developer.vue') }
+    { path: '/developer', component: require('./components/Developer.vue') },
+    { path: '*', component: require('./components/NotFound.vue') }    
 
   ]
 
@@ -107,5 +108,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    data: {
+      search:''
+    },
+    methods: {
+      //debounce is a lodash func that wait 1 sec until user write a keyword for searching 
+      searchit: _.debounce(() => {
+       Fire.$emit('searching'); 
+      },1000)
+    }
 });

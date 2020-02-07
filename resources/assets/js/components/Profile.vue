@@ -17,8 +17,8 @@
                 <div class="card card-widget widget-user" >
               <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header bg-info" style="background-image:url('./img/user-cover.jpg')">
-                    <h3 class="widget-user-username">Alexander Pierce</h3>
-                    <h5 class="widget-user-desc">Founder &amp; CEO</h5>
+                    <h3 class="widget-user-username">{{this.form.name}}</h3>
+                    <h5 class="widget-user-desc">{{this.form.type}}</h5>
                 </div>
                 <div class="widget-user-image">
                     <img class="img-circle elevation-2" :src="getProfilePicture()" alt="User Avatar">
