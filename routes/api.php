@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+<<<<<<< HEAD
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,10 +16,14 @@ use Illuminate\Http\Request;
 
 
 /* 
+=======
+>>>>>>> 6c15941e38876e10178e6348b85514b5fc412749
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 }); 
 */
+
+
 
 
 Route::apiResources(['user' => 'API\UserController']);

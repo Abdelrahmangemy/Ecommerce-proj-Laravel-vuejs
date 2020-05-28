@@ -50,14 +50,28 @@ Vue.use(VueProgressBar, {
   height: '3px'
 })
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 6c15941e38876e10178e6348b85514b5fc412749
 import Editor from 'vue-editor-js' 
 Vue.use(Editor)
 
 
+<<<<<<< HEAD
 let routes = [
     { path: '/', component: require('./components/Home.vue') },
     { path: '/products', component: require('./components/Products.vue') },
     { path: '/about', component: require('./components/About.vue') },
+=======
+let routes = [
+    { path: '/', component: require('./components/Home.vue') },
+    { path: '/products', component: require('./components/Products.vue') },
+    { path: '/about', component: require('./components/About.vue') },
+=======
+let routes = [
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
+>>>>>>> 6c15941e38876e10178e6348b85514b5fc412749
     { path: '/dashboard', component: require('./components/Dashboard.vue') },
     { path: '/profile', component: require('./components/Profile.vue') },
     { path: '/users', component: require('./components/Users.vue') },
@@ -68,8 +82,17 @@ let routes = [
 
   const router = new VueRouter({
     mode: 'history',
+<<<<<<< HEAD
     base: process.env.BASE_URL,
     routes, 
+=======
+<<<<<<< HEAD
+    base: process.env.BASE_URL,
+    routes, 
+=======
+    routes , // short for `routes: routes`
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
+>>>>>>> 6c15941e38876e10178e6348b85514b5fc412749
   
   })
 
@@ -111,6 +134,7 @@ Vue.component(
   require('./components/NotFound.vue')
 );
 
+<<<<<<< HEAD
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('Navbar',require('./components/Navbar.vue'));
 Vue.component('add-to-cart',require('./components/AddToCart.vue'));
@@ -118,6 +142,20 @@ Vue.component('Products-list',require('./components/ProductList.vue'));
 Vue.component('Hero',require('./components/Hero.vue'));
 Vue.component('Login',require('./components/Login.vue'));
 
+=======
+<<<<<<< HEAD
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('Navbar',require('./components/Navbar.vue'));
+Vue.component('add-to-cart',require('./components/AddToCart.vue'));
+Vue.component('Products-list',require('./components/ProductList.vue'));
+Vue.component('Hero',require('./components/Hero.vue'));
+Vue.component('Login',require('./components/Login.vue'));
+
+=======
+
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
+>>>>>>> 6c15941e38876e10178e6348b85514b5fc412749
 
 const app = new Vue({
     el: '#app',
