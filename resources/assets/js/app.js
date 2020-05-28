@@ -50,6 +50,7 @@ Vue.use(VueProgressBar, {
   height: '3px'
 })
 
+<<<<<<< HEAD
 import Editor from 'vue-editor-js' 
 Vue.use(Editor)
 
@@ -58,6 +59,9 @@ let routes = [
     { path: '/', component: require('./components/Home.vue') },
     { path: '/products', component: require('./components/Products.vue') },
     { path: '/about', component: require('./components/About.vue') },
+=======
+let routes = [
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
     { path: '/dashboard', component: require('./components/Dashboard.vue') },
     { path: '/profile', component: require('./components/Profile.vue') },
     { path: '/users', component: require('./components/Users.vue') },
@@ -68,8 +72,12 @@ let routes = [
 
   const router = new VueRouter({
     mode: 'history',
+<<<<<<< HEAD
     base: process.env.BASE_URL,
     routes, 
+=======
+    routes , // short for `routes: routes`
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
   
   })
 
@@ -111,6 +119,7 @@ Vue.component(
   require('./components/NotFound.vue')
 );
 
+<<<<<<< HEAD
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('Navbar',require('./components/Navbar.vue'));
 Vue.component('add-to-cart',require('./components/AddToCart.vue'));
@@ -118,6 +127,10 @@ Vue.component('Products-list',require('./components/ProductList.vue'));
 Vue.component('Hero',require('./components/Hero.vue'));
 Vue.component('Login',require('./components/Login.vue'));
 
+=======
+
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
 
 const app = new Vue({
     el: '#app',

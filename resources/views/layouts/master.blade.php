@@ -68,6 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+<<<<<<< HEAD
             
             @if(Gate::allows('isUser'))
             <li class="nav-item">
@@ -97,6 +98,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             @endif
 
             @if(Gate::allows('isAdmin') || Gate::allows('isAuthor'))  
+=======
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
             <li class="nav-item">
             <router-link to="/dashboard" class="nav-link">
               <i class="nav-icon fas fa-tog "></i>
@@ -106,7 +109,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </router-link>
             </li>
             
+<<<<<<< HEAD
             
+=======
+            @if(Gate::allows('isAdmin') || Gate::allows('isAuthor'))  
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
           <li class="nav-item has-treeview ">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -135,7 +142,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </router-link>
           </li>
+<<<<<<< HEAD
           
+=======
+          @endif
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
 
           <li class="nav-item">
           <router-link to="/profile" class="nav-link">
@@ -145,7 +156,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </router-link>
           </li>
+<<<<<<< HEAD
           @endif
+=======
+          
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
             <li class="nav-item">
             
             <a class="nav-link" href="{{ route('logout') }}"
@@ -197,6 +212,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="float-right d-none d-sm-inline">
       Anything you want
     </div>
+<<<<<<< HEAD
+=======
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+>>>>>>> 9a9b06a8b4634b781eab44388e2966b4778b5b85
   </footer>
 </div>
 <!-- ./wrapper -->
