@@ -17,15 +17,19 @@
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
         "popper.js": "^1.12",
+        "summernote": "^0.8.15",
         "vue": "^2.5.7"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12.0",
         "admin-lte": "^3.0.0-alpha.2",
+        "codemirror": "^5.51.0",
         "moment": "^2.24.0",
         "sweetalert2": "^9.7.0",
         "vform": "^1.0.1",
+        "vue-editor-js": "^1.1.1",
         "vue-progressbar": "^0.7.5",
-        "vue-router": "^3.1.5"
+        "vue-router": "^3.1.5",
+        "vue2-editor": "^2.10.2"
     }
 }

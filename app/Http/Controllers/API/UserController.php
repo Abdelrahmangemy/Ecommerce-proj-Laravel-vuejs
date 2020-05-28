@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api');
+        //$this->middleware('auth:api');
     }
 
 
@@ -28,11 +28,10 @@ class UserController extends Controller
     public function index()
     {
         //$this->authorize('isAdmin');
-        if (\Gate::allows('isAdmin') || \Gate::allows('isAuthor') ) {
 
             return User::latest()->paginate(10);
        
-        }
+        
         
         
     }
@@ -167,7 +166,7 @@ class UserController extends Controller
                 $query->where('name','LIKE',"%$search%")
                         ->orWhere('email','LIKE',"%$search%")
                         ->orWhere('type','LIKE',"%$search%");
-            })->paginate(10);
+             })->paginate(10);
         }else{
             $users = User::latest()->paginate(5);
         }
